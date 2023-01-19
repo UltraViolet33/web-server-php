@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Request;
-use Response;
+use App\Request;
+use App\Response;
 use Exception;
 use Socket;
 
@@ -67,7 +67,7 @@ class Server
 
 
             if (!$response || !$response instanceof Response) {
-                $response = Response::error(404);
+                // $response = Response::error(404);
             }
 
             $response = (string) $response;
