@@ -49,31 +49,24 @@ class Server
             throw new Exception("The argument should be callable");
         }
 
-
         while (true) {
             //listen for connections
             socket_listen($this->socket);
-
 
             if (!$client = socket_accept($this->socket)) {
                 socket_close($client);
                 continue;
             }
 
-
             $request = Request::withHeaderString(socket_read($client, 1024));
-
             $response = call_user_func($callback, $request);
-
 
             if (!$response || !$response instanceof Response) {
                 // $response = Response::error(404);
             }
 
             $response = (string) $response;
-
             socket_write($client, $response, strlen($response));
-
             socket_close($client);
         }
     }

@@ -1,13 +1,10 @@
 <?php
 
-
 namespace App;
 
 
 class Response
 {
-
-
     protected $status = 200;
     protected $body = '';
     protected $headers = [];
@@ -80,10 +77,12 @@ class Response
         $this->header('Server', 'PHPServer/1.0.0 (Whateva)');
     }
 
+
     public function header($key, $value)
     {
         $this->headers[ucfirst($key)] = $value;
     }
+
 
     public function buildHeaderString()
     {
@@ -100,6 +99,7 @@ class Response
         return implode(" \r\n", $lines) . "\r\n\r\n";
     }
 
+    
     public function __toString()
     {
         return $this->buildHeaderString() . $this->body;

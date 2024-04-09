@@ -4,20 +4,16 @@ namespace App;
 
 class Request
 {
-
     protected string $method;
     protected string $uri;
     protected array $parameters = [];
     protected array $headers = [];
 
-
     public function __construct(string $method, string $uri, array $headers = [])
     {
         $this->headers = $headers;
         $this->method = strtoupper($method);
-
         list($this->uri, $params) = explode("?", $uri);
-
         parse_str($params, $this->parameters);
     }
 
@@ -38,7 +34,6 @@ class Request
                 $headers[$key] = $value;
             }
         }
-
 
         return new static($method, $uri, $headers);
     }

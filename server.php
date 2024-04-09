@@ -1,4 +1,3 @@
-
 <?php
 
 use App\Server;
@@ -13,8 +12,6 @@ if (empty($argv)) {
     $port = array_shift($argv);
 }
 
-
-// require "vendor/autoload.php";
 
 require "./vendor/autoload.php";
 
