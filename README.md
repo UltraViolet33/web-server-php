@@ -1,3 +1,3 @@
 # PHP-Web-Server
 
-PHP webserver from scratch
+PHP web server from scratch
